@@ -17,6 +17,7 @@ class GantiPassword extends CI_Controller {
 
         if ($this->form_validation->run() != FALSE ) {
             $data = array('password' => md5($passBaru));
+            // $data = array('password' => $passBaru);
             $id = array('id_pegawai' => $this->session->userdata('id_pegawai'));
 
             $this->penggajianModel->update_data('data_pegawai', $data, $id);

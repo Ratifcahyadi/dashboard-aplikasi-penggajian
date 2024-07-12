@@ -1,5 +1,12 @@
 <!-- Footer -->
-<footer class="sticky-footer b-0 w-100 bg-white ">
+<style>
+    .bottom-0 {
+        position: fixed;
+        bottom: 0;
+        z-index: 99;
+    }
+</style>
+<footer class="sticky-footer b-0 w-100 bg-white bottom-0">
     <div class="container my-auto">
         <div class="copyright text-center">
             <span>Copyright &copy; Indonesia Bangkit 2023</span>

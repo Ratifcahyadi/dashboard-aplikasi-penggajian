@@ -27,15 +27,15 @@
     </center>
 
     <?php 
-    if ((isset($_POST['bulan'])) && (isset($_POST['tahun']))) {
-            $bulan = $_POST['bulan'];
-            $tahun = $_POST['tahun'];
-            $bulantahun =  $bulan . $tahun;
-        } else {
-            $bulan = date('m');
-            $tahun = date('Y');
-            $bulantahun =  $bulan . $tahun;
-        }
+    // if ((isset($_POST['bulan'])) && (isset($_POST['tahun']))) {
+    //         $bulan = $_POST['bulan'];
+    //         $tahun = $_POST['tahun'];
+    //         $bulantahun =  $bulan . $tahun;
+    //     } else {
+    //         $bulan = date('m');
+    //         $tahun = date('Y');
+    //         $bulantahun =  $bulan . $tahun;
+    //     }
     ?>
 
     <?php foreach($potongan as $p) {
@@ -64,12 +64,12 @@
         <tr>
             <td>Bulan</td>
             <td>:</td>
-            <td class="text-primary"><?php echo $bulan ?></td>
+            <td class="text-primary"><?php echo substr($ps->bulan, 0, 2) ?></td>
         </tr>
         <tr>
             <td>Tahun</td>
             <td>:</td>
-            <td class="text-primary"><?php echo $tahun ?></td>
+            <td class="text-primary"><?php echo substr($ps->bulan, 2) ?></td>
         </tr>
     </table>
 

@@ -10,13 +10,13 @@
     <div class="card mb-5 w-50 mx-auto">
         <div class="card-body">
             <div class="form-group">
-                <label for="">Password Baru</label>
-                <input type="password" name="passBaru" id="" class="form-control">
+                <label for="passBaru">Password Baru</label>
+                <input type="password" name="passBaru" id="passBaru" class="form-control">
                 <?php echo form_error('passBaru', '<div class="text-small text-danger"><?div>')?>
             </div>
             <div class="form-group">
-                <label for="">Ulangi Password Baru</label>
-                <input type="password" name="ulangPass" id="" class="form-control">
+                <label for="ulangPass">Ulangi Password Baru</label>
+                <input type="password" name="ulangPass" id="ulangPass" class="form-control">
                 <?php echo form_error('ulangPass', '<div class="text-small text-danger"><?div>')?>
             </div>
             <button type="submit" class="btn btn-success">Simpan</button>

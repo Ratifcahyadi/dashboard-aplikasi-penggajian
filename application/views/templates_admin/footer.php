@@ -1,5 +1,14 @@
 <!-- Footer -->
-<footer class="sticky-footer b-0 w-100 bg-white ">
+<style>
+    .bottom-0 {
+        text-align: center;
+        margin: 0 auto;
+        position: fixed ;
+        bottom: 0;
+        z-index: 99;
+    }
+</style>
+<footer class="sticky-footer b-0 w-100 bg-white bottom-0">
     <div class="container my-auto">
         <div class="copyright text-center">
             <span>Copyright &copy; Indonesia Bangkit 2023</span>
@@ -48,11 +57,11 @@
 <script src="<?php echo base_url() ?>/assets/js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<script src="<?php echo base_url() ?>/assets/vendor/chart.js/Chart.min.js"></script>
+<!-- <script src="<?php echo base_url() ?>/assets/vendor/chart.js/Chart.min.js"></script> -->
 
 <!-- Page level custom scripts -->
-<script src="<?php echo base_url() ?>/assets/js/demo/chart-area-demo.js"></script>
-<script src="<?php echo base_url() ?>/assets/js/demo/chart-pie-demo.js"></script>
+<!-- <script src="<?php echo base_url() ?>/assets/js/demo/chart-area-demo.js"></script> -->
+<!-- <script src="<?php echo base_url() ?>/assets/js/demo/chart-pie-demo.js"></script> -->
 
 </body>
 

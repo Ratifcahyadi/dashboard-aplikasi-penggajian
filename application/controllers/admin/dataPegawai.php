@@ -1,20 +1,20 @@
 <?php 
 class dataPegawai extends CI_Controller {
     
-    public function __construct() {
-        parent::__construct();
-        if ($this->session->userdata('hak_akses') !='1') {
-            $this->session->set_flashdata('pesan',
-                '<div class="alert alert-info alert-dismissible fade show" role="alert">
-                <strong>Anda belum login!</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>'
-            );
-            redirect('welcome');
-        }
-    }
+    // public function __construct() {
+    //     parent::__construct();
+    //     if ($this->session->userdata('hak_akses') !='1') {
+    //         $this->session->set_flashdata('pesan',
+    //             '<div class="alert alert-info alert-dismissible fade show" role="alert">
+    //             <strong>Anda belum login!</strong>
+    //             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    //                 <span aria-hidden="true">&times;</span>
+    //             </button>
+    //             </div>'
+    //         );
+    //         redirect('welcome');
+    //     }
+    // }
     
 
     public function index()
@@ -94,7 +94,7 @@ class dataPegawai extends CI_Controller {
     }
 
     public function updateData($id) {
-        $where = array('id_pegawai' => $id);
+        // $where = array('id_pegawai' => $id);
         $data['title'] = 'Update Data Pegawai';
         $data['jabatan'] = $this->penggajianModel->get_data('data_jabatan')->result();
 
@@ -190,7 +190,6 @@ class dataPegawai extends CI_Controller {
         }
     }
 
-
     public function _rules()
     {
             $this->form_validation->set_rules('nik', 'NIK', 'required');
@@ -203,10 +202,10 @@ class dataPegawai extends CI_Controller {
         // $this->form_validation->set_rules('status', 'status', 'required');
     }
 
-
     public function deleteData($id)
     {
         $where = array('id_pegawai' => $id);
+        $this->deleteExistingPhoto($id); // Delete associated photo
         $this->penggajianModel->delete_data($where, 'data_pegawai');
         $this->session->set_flashdata(
             'pesan',
@@ -218,6 +217,14 @@ class dataPegawai extends CI_Controller {
                 </div>'
         );
         redirect('admin/dataPegawai');
+    }
+
+    private function deleteExistingPhoto($id) {
+        $existing_photo = $this->db->get_where('data_pegawai', ['id_pegawai' => $id])->row()->photo;
+    
+        if ($existing_photo && file_exists('./assets/photo/' . $existing_photo)) {
+            unlink('./assets/photo/' . $existing_photo);
+        }
     }
 }
 ?>
